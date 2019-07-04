@@ -1,0 +1,7 @@
+-- auto Generated on 2019-07-03 22:33:00 
+-- DROP TABLE IF EXISTS `user`; 
+CREATE TABLE `user`(
+    `id` VARCHAR (50) NOT NULL AUTO_INCREMENT COMMENT 'id',
+    `namn` VARCHAR (50) NOT NULL DEFAULT '' COMMENT 'namn',
+    PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT '`user`';

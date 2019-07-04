@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.video.videodao.pojo.mapper.UserDao">
+    <insert id="save" parameterType="com.video.videodao.pojo.bean.User">
+         insert  into  user (id,namn) values (#{id},#{namn})
+    </insert>
+
+<!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.video.videodao.pojo.bean.User">
+        <result column="id" property="id"/>
+        <result column="namn" property="namn"/>
+    </resultMap>
+
+<!--auto generated Code-->
+    <sql id="all_column">
+        `id`,
+        `namn`
+    </sql>
+
+<!--auto generated Code-->
+    <insert id="insert">
+        INSERT INTO `user`
+
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> `id`, </if>
+            <if test="pojo.namn != null"> `namn`, </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> #{pojo.id}, </if>
+            <if test="pojo.namn != null"> #{pojo.namn}, </if>
+        </trim>
+    </insert>
+    <select id="getUserAll" resultType="com.video.videodao.pojo.bean.User">
+        select  *  from  user
+    </select>
+<!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO `user`(
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.id},
+            #{pojo.namn}
+            )
+        </foreach>
+    </insert>
+
+<!--auto generated Code-->
+    <update id="update">
+        UPDATE `user`
+        <set>
+            <if test="pojo.id != null"> `id` = #{pojo.id}, </if>
+            <if test="pojo.namn != null"> `namn` = #{pojo.namn} </if>
+        </set>
+         WHERE `id` = #{pojo.id}
+    </update>
+
+</mapper>
