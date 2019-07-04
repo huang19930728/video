@@ -24,8 +24,8 @@ public class UserController {
     @ResponseBody
     public int  save(){
         User user=new User();
-        user.setId("2");
-        user.setNamn("Q");
+        user.setId("3");
+        user.setNamn("L");
         userService.insert(user);
         return 1;
     }
